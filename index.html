@@ -13,16 +13,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-r.min.js"></script>
 <style>
   :root {
-      --primary-pink: #ff69b4; /* Bright Pink */
-      --secondary-orange: #ff7f50; /* Coral */
-      --light-pink: #ffe6f0; /* Light Pink */
-      --muted-pink: #F7CAC9; /* Rose Quartz for softer pink */
-      --background-code: #fef0e6; /* Light peachy for code background */
-      --border-code: #f5b7b1; /* Light coral border for code */
-      --text-dark: #1f2937;
-      --text-light: #f8fafc;
-      --sidebar-bg: rgba(255, 255, 255, 0.9); /* Light sidebar background for better legibility (if used) */
-      --sidebar-border: #f5b7b1; /* matching border for sidebar items */
+      --primary-accent: #3B5998; /* Deep Blue */
+      --highlight: #8FAADC; /* Soft Blue */
+      --code-bg: #FAFAFA; /* Very Light Gray for code background */
+      --content-bg: #F0F4F8; /* Light Gray for containers */
+      --text-dark: #333; /* Dark Gray for text */
   }
 
   * {
@@ -33,11 +28,11 @@
 
   body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(135deg, var(--muted-pink), var(--primary-pink), var(--muted-pink));
+      background: linear-gradient(135deg, #D0E2F2, #B0CBE2, #D0E2F2); /* Soft blue gradient background */
       min-height: 100vh;
-      color: var(--text-light);
+      color: var(--text-dark);
       line-height: 1.6;
-      padding-top: 70px; /* space for sticky header */
+      padding-top: 70px;
   }
 
   .container {
@@ -73,7 +68,7 @@
   .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--primary-pink);
+      color: var(--primary-accent);
       text-decoration: none;
       transition: transform 0.3s ease;
   }
@@ -82,16 +77,15 @@
       transform: scale(1.05);
   }
 
-  /* Main navigation links (header) */
+  /* Navigation links styling */
   .nav-links {
       display: flex;
       gap: 1.5rem;
       list-style: none;
-      flex-wrap: nowrap;
   }
 
   .nav-links li {
-      display: inline-block; 
+      display: inline-block;
   }
 
   .nav-links a {
@@ -102,10 +96,10 @@
   }
 
   .nav-links a:hover {
-      color: var(--primary-pink);
+      color: var(--primary-accent);
   }
 
-  /* Hero Section */
+  /* Hero section styling */
   .hero {
       text-align: center;
       padding: 4rem 2rem;
@@ -118,7 +112,7 @@
   .hero h1 {
       font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 0.5rem;
-      color: #fff; /* White for contrast against pink gradient */
+      color: #fff;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
@@ -126,19 +120,19 @@
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto 2rem;
-      color: #fff; /* White for readability on light header area */
+      color: #fff;
   }
 
   .btn {
       display: inline-block;
       padding: 0.8rem 2rem;
-      background: linear-gradient(135deg, var(--primary-pink), var(--secondary-orange));
-      color: white;
+      background: linear-gradient(135deg, var(--primary-accent), var(--highlight));
+      color: #fff;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      box-shadow: 0 4px 15px rgba(59, 89, 152, 0.4);
       border: none;
       cursor: pointer;
       font-size: 1rem;
@@ -146,13 +140,12 @@
 
   .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+      box-shadow: 0 6px 20px rgba(59, 89, 152, 0.6);
   }
 
-  /* Blog Content */
+  /* Main content with softer background */
   .blog-content {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: var(--content-bg);
       border-radius: 16px;
       padding: 3rem;
       margin: 2rem auto;
@@ -173,46 +166,45 @@
   }
 
   .post h2 {
-      color: var(--primary-pink);
+      color: var(--primary-accent);
       margin-bottom: 1rem;
       font-size: 2rem;
   }
 
   .post-meta {
-      color: #64748b;
+      color: #607D8B;
       margin-bottom: 1.5rem;
   }
 
-  /* Code blocks updated to match theme */
+  /* Code block style with high contrast for clarity */
   .code-block {
-      background: var(--background-code);
-      color: #4a4a4a; /* Dark text for readability on light code bg */
+      background: var(--code-bg);
+      color: #222; /* Bright contrast for code readability */
       padding: 1.5rem;
       border-radius: 8px;
       margin: 1.5rem 0;
       overflow-x: auto;
       font-family: 'Monaco', 'Consolas', monospace;
-      border-left: 4px solid var(--border-code);
+      border-left: 4px solid var(--highlight);
       border: 1px solid #f5b7b1;
   }
 
-  /* Explanation and feature boxes with soft pink backgrounds and borders */
+  /* Explanation and feature boxes style */
   .explanation, .feature-card {
-      background: #fff0f5; /* Light pink background for readability */
-      border: 1px solid #f5b7b1;
+      background: #E3F2FD; /* Soft light blue for readability */
+      border: 1px solid #90CAF9;
       padding: 1.5rem;
       border-radius: 8px;
       margin: 1.5rem 0;
   }
 
-  /* Hover effect for feature cards */
   .feature-card:hover {
-      background: #fff0f5;
+      background: #BBDEFB;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transform: translateY(-3px);
   }
 
-  /* Grid cards */
+  /* Grid layout for topics */
   .section-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -221,7 +213,7 @@
   }
 
   .topic-card {
-      background: white;
+      background: #fff;
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -236,7 +228,7 @@
   /* Footer styles */
   footer {
       background: rgba(0, 0, 0, 0.8);
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 2rem 0;
       margin-top: 2rem;
@@ -273,7 +265,7 @@
 </style>
 </head>
 <body>
-<!-- Header -->
+<!-- Only header navigation, no duplicate sidebar -->
 <header id="header-section">
   <div class="container">
     <nav class="navbar">
@@ -400,7 +392,7 @@ print(numbers)
       </div>
     </article>
 
-    <!-- Data Visualisation -->
+    <!-- Visualization -->
     <article class="post animate-on-scroll" id="visualization">
       <h2>Creating Beautiful Visualisations with ggplot2</h2>
       <div class="post-meta">ggplot2 | Plots | Charts | Graphics</div>
@@ -558,7 +550,6 @@ labs(title="Permutation Distribution of Difference", x="Difference", y="Frequenc
         <p>Compare your observed difference to this distribution to assess significance.</p>
       </div>
     </article>
-
   </div>
 </main>
 
@@ -576,7 +567,7 @@ labs(title="Permutation Distribution of Difference", x="Difference", y="Frequenc
   </div>
 </footer>
 
-<!-- Script -->
+<!-- GSAP animations -->
 <script>
   // Animate header on scroll
   window.addEventListener('scroll', () => {
@@ -588,8 +579,7 @@ labs(title="Permutation Distribution of Difference", x="Difference", y="Frequenc
       gsap.to(headerSection, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
     }
   });
-
-  // Animate sections as they come into view
+  // Animate sections
   document.querySelectorAll('.animate-on-scroll').forEach((section) => {
     gsap.from(section, {
       scrollTrigger: {
@@ -603,34 +593,20 @@ labs(title="Permutation Distribution of Difference", x="Difference", y="Frequenc
       ease: "power2.out"
     });
   });
-
-  // Animate buttons and cards on hover for more fun
-  document.querySelectorAll('.btn, .feature-card, .topic-card').forEach((element) => {
-    element.addEventListener('mouseenter', () => {
-      gsap.to(element, { scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.2)", duration: 0.3 });
+  // Hover effects
+  document.querySelectorAll('.btn, .feature-card, .topic-card').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      gsap.to(el, { scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.2)", duration: 0.3 });
     });
-    element.addEventListener('mouseleave', () => {
-      gsap.to(element, { scale: 1, boxShadow: "0 4px 15px rgba(0,0,0,0.1)", duration: 0.3 });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(el, { scale: 1, boxShadow: "0 4px 15px rgba(0,0,0,0.1)", duration: 0.3 });
     });
   });
-
-  // Entrance animations for page load
+  // Load animations
   window.addEventListener('load', () => {
-    gsap.from('.hero h1, .hero p, .btn', {
-      opacity: 0,
-      y: 30,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power2.out"
-    });
-    gsap.utils.toArray('.post').forEach((post, index) => {
-      gsap.from(post, {
-        opacity: 0,
-        y: 50,
-        delay: 0.3 * index,
-        duration: 1,
-        ease: "power2.out"
-      });
+    gsap.from('.hero h1, .hero p, .btn', { opacity: 0, y: 30, stagger: 0.2, duration: 1, ease: "power2.out" });
+    gsap.utils.toArray('.post').forEach((post, i) => {
+      gsap.from(post, { opacity: 0, y: 50, delay: 0.3 * i, duration: 1, ease: "power2.out" });
     });
   });
 </script>
